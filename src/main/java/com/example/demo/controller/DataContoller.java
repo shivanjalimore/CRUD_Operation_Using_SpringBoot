@@ -47,7 +47,7 @@ public class DataContoller {
     		return "redirect:/show";   		
     	}
     	
-    @RequestMapping("/show")
+    @GetMapping("/show")
     public List<Student> show(HttpServletRequest req , HttpServletResponse res) {
     	
     	List<Student> list = new ArrayList<>();
@@ -72,7 +72,7 @@ public class DataContoller {
     	return "redirect:/show";
     } 
     
-    @GetMapping("/editAction")
+    @RequestMapping("/editAction")
     public String editAction( int id, HttpSession session) {
         Optional<Student> data = sr.findById(id);
         session.setAttribute("studentToEdit", data.orElse(null));
